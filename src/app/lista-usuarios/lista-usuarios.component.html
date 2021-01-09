@@ -1,0 +1,17 @@
+<h1>Lista de usúarios</h1>
+<div class="container">
+    <div *ngFor='let u of users; let i = index;' class="users">
+        <div class="box">
+            <div class="informations">
+                <div>
+                    <img [src]="u.img" class="container-img"/>
+                </div>
+                <div class="span_users">
+                    <span> Nome do Ùsúario: {{u.name}}</span> <br/>
+                    <span>ID: {{u.id}} Username: {{u.username}}</span>
+                </div>
+            </div>
+            <button>Pagar</button>
+        </div>
+    </div>
+</div>
