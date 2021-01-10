@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ModalComponent } from './modal/modal.component';
+import { ShowLastDigitsPipe } from './show-last-digits.pipe'
 @NgModule({
   declarations: [
     AppComponent,
-    ListaUsuariosComponent
+    ListaUsuariosComponent,
+    ModalComponent,
+    ShowLastDigitsPipe
   ],
   imports: [
     BrowserModule,
@@ -16,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http'
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[ ShowLastDigitsPipe]
 })
 export class AppModule { }

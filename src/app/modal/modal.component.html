@@ -1,0 +1,23 @@
+<div class="container-modal" *ngIf="selectedUser.id">
+    <div class="header">
+        <h2>Pagamento para <span> {{selectedUser.name}}</span> </h2>
+        <div class="button-close" (click)="closeModal()">
+            X
+        </div>
+    </div>
+    <div class="contant-modal">
+        <input placeholder="R$ 0,00"/>
+        <select name="" id="" (change)="selectCard($event)">
+            <option *ngFor="let card of cards; let i= index">
+                Cartão com final {{card.card_number | showLastDigits}}
+            </option>
+        </select>
+        <button (click)="validacao()">Pagar</button>
+    </div>
+    <div class="container_receipt">
+        <div class="receipt">
+            <span>Recibo de Pagamento</span>
+        </div>
+        <span class="span_receipt">O Pagamento foi concluido com sucesso.</span>
+    </div>
+</div>
