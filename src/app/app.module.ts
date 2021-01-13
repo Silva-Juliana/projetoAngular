@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './modal/modal.component';
-import { ShowLastDigitsPipe } from './show-last-digits.pipe'
+import { ShowLastDigitsPipe } from './show-last-digits.pipe';
+import { ModalReceiptComponent } from './modal-receipt/modal-receipt.component'
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     ListaUsuariosComponent,
     ModalComponent,
-    ShowLastDigitsPipe
+    ShowLastDigitsPipe,
+    ModalReceiptComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

@@ -6,18 +6,12 @@
         </div>
     </div>
     <div class="contant-modal">
-        <input placeholder="R$ 0,00"/>
-        <select name="" id="" (change)="selectCard($event)">
-            <option *ngFor="let card of cards; let i= index">
+        <input placeholder="R$ 0,00" name="valueTransaction" [(ngModel)]="vt"/>
+        <select name="cardSelect" id="cardSelect" [(ngModel)]="cardSelect">
+            <option *ngFor="let card of cards" [ngValue]="card.card_number">
                 Cartão com final {{card.card_number | showLastDigits}}
             </option>
         </select>
-        <button (click)="validacao()">Pagar</button>
-    </div>
-    <div class="container_receipt">
-        <div class="receipt">
-            <span>Recibo de Pagamento</span>
-        </div>
-        <span class="span_receipt">O Pagamento foi concluido com sucesso.</span>
+        <button (click)="makeTransaction()">Pagar</button>
     </div>
 </div>

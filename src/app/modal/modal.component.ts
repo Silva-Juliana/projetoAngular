@@ -1,6 +1,19 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+interface TransactionPayload {
+  // Card Info
+  card_number: string;
+  cvv: number;
+  expiry_date: string;
+
+  // Destination User ID
+  destination_user_id: number;
+
+  // Value of the Transaction
+  value: number;
+}
+
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -11,12 +24,14 @@ export class ModalComponent implements OnInit {
   @Input()
   selectedUser: any;
 
-  @Output() onCloseModal = new EventEmitter<boolean>()
+  @Output() onCloseModal = new EventEmitter()
+
+  vt:any = "";
+  cardSelect:any = '1111111111111111'
 
   constructor(private http: HttpClient) { }
   
-  card = '1111';
-  cards = [
+  cards:any = [
     // valid card
     {
       card_number: '1111111111111111',
@@ -31,31 +46,37 @@ export class ModalComponent implements OnInit {
     },
   ];
 
- validate:any = [] 
 
   ngOnInit(): void {
   }
+  
+  closeModal(response:any = {status: 'cancel'}) {
+    this.vt=""
+    this.cardSelect=this.cards[0].card_number
+    this.onCloseModal.emit(response)
+  }
 
-validacao(){
-  const digits = this.card.match(/\d{4}/);
-  const currentCard = this.cards.find((value) => value.card_number.slice(-4) === digits![0]);
-    return this.http.post('https://run.mocky.io/v3/533cd5d7-63d3-4488-bf8d-4bb8c751c989', {
+  makeTransaction(){
 
-      card_number: currentCard?.card_number,
-      cvv: currentCard?.cvv,
-      expiry_date: currentCard?.expiry_date ,
+    let cardFull=this.cards.filter((card:any) => {
+      if (card.card_number == this.cardSelect) {
+        return true
+      }
+      return false
+    })[0];
 
-    }).toPromise().then((validacao:any) => {
-      
-      this.validate = validacao
+    let transaction:TransactionPayload= {
+
+      card_number:this.cardSelect,
+      destination_user_id:this.selectedUser.id,
+      value:parseFloat(this.vt.replace(',', '.')),
+      cvv:cardFull.cvv,
+      expiry_date:cardFull.expiry_date,
+
+    }
+    this.http.post('https://run.mocky.io/v3/533cd5d7-63d3-4488-bf8d-4bb8c751c989', transaction).toPromise().then((response)=> {
+      this.closeModal(response)
     })
-}
-
-  closeModal() {
-    this.onCloseModal.emit(true)
   }
 
-  selectCard(card: any) {
-    this.card = card.target.value;
-  }
 }

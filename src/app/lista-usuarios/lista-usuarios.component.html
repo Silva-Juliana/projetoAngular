@@ -1,4 +1,16 @@
 <app-modal [selectedUser]= "selectedUser" (onCloseModal)="fecharModal($event)"></app-modal>
+
+<div class="container_receipt" *ngIf='showMessege'>
+    <div class="receipt">
+        <span>Recibo de Pagamento</span>
+    </div>
+    <div class="button-close" (click)="toggleMessege()">
+        X
+    </div>
+    <div class="content-content" [innerHTML]="message">
+    </div>
+</div>
+
 <h1>Lista de usuários</h1>
 <div class="container">
     <div *ngFor='let u of users; let i = index;' class="users">
