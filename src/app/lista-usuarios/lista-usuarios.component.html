@@ -7,8 +7,7 @@
     <div class="button-close" (click)="toggleMessege()">
         X
     </div>
-    <div class="content-content" [innerHTML]="message">
-    </div>
+    <div class="content-content" [innerHTML]="message"></div>
 </div>
 
 <h1>Lista de usuários</h1>
@@ -24,7 +23,7 @@
                     <span>ID: {{u.id}} - Username: {{u.username}}</span>
                 </div>
             </div>
-            <button (click)= "initialPay(u)">Pagar</button>
+            <button class="button_pay" (click)= "initialPay(u)">Pagar</button>
         </div>
     </div>
 </div>

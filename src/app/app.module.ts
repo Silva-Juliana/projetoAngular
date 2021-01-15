@@ -9,6 +9,7 @@ import { ModalComponent } from './modal/modal.component';
 import { ShowLastDigitsPipe } from './show-last-digits.pipe';
 import { ModalReceiptComponent } from './modal-receipt/modal-receipt.component'
 import { FormsModule } from '@angular/forms';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

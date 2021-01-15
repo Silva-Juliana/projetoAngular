@@ -8,6 +8,9 @@
     margin-right: -25%;
     top: 15%;
     flex-direction: column;
+    background-color: white;
+    padding: 0px 0px 62px 0px;
+    padding-bottom: 25px;
 }
 
 .header {
@@ -17,7 +20,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 13px;
-
+    padding: 10px 0px 10px 0px;
 }
 
 .header span {
@@ -26,12 +29,14 @@
 
 .button-close {
     position: absolute;
-    right: 10px;
-    color: white;
+    right: 16px;
+    color:#e41616;
     display: flex;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     top: 9px;
+    font-size: 17px;
+    cursor: pointer;
 }
 
 .contant-modal {
@@ -41,4 +46,38 @@
 
 h2 {
     margin-left: 30px;
+}
+
+.input_modal {
+    font-size: 23px;
+    margin: 30px;
+    border-radius: 5px;
+    outline: 0;
+    border-color: #0000003b;
+    padding: 7px;
+}
+
+#cardSelect {
+    font-size: 23px;
+    margin: 0px 37px 30px 37px;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 7px;
+    background-color: white;
+    border-color: #0000003b;
+    outline: 0;
+    border-width: 2px;
+}
+
+.button_pay_modal {
+    font-size: 23px;
+    padding: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 86px;
+    border-color: #0000003b;
+    border-radius: 5px;
+    align-self: center;
+    cursor: pointer;
+    outline: 0;
 }

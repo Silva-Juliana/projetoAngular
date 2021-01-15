@@ -6,12 +6,12 @@
         </div>
     </div>
     <div class="contant-modal">
-        <input placeholder="R$ 0,00" name="valueTransaction" [(ngModel)]="vt"/>
+        <input class="input_modal" mask="0*,00" placeholder="R$ 0,00" name="valueTransaction" [(ngModel)]="vt"/>
         <select name="cardSelect" id="cardSelect" [(ngModel)]="cardSelect">
             <option *ngFor="let card of cards" [ngValue]="card.card_number">
                 Cartão com final {{card.card_number | showLastDigits}}
             </option>
         </select>
-        <button (click)="makeTransaction()">Pagar</button>
+        <button class="button_pay_modal" (click)="makeTransaction()">Pagar</button>
     </div>
 </div>
